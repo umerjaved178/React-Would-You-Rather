@@ -1,0 +1,36 @@
+.EntirePool {
+    width: 65%;
+    align-items: center;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.Headers {
+    cursor: pointer;
+    color: black;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: transparent solid 5px;
+    padding-bottom: 5px;
+    margin: 0px 9px;
+    margin-bottom: 30px;
+}
+
+.Headers:active {
+    transform: scale(0.96);
+}
+
+.Headers:focus {
+    border-bottom: #FEB729 solid 5px;
+    outline:none;
+}
+
+.Headers:hover{
+    border-bottom: #FEB729 solid 5px;
+}
+
+.TableArea {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
