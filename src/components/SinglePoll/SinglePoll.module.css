@@ -12,10 +12,13 @@
 }
 
 .item_1 {
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .item_2{
     flex-direction: column;
-    margin-top: -30px;
+}
+
+.author {
+    font-size: 12px;
 }
