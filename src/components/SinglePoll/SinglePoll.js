@@ -25,7 +25,6 @@ function SinglePoll(props) {
                                 id: props.id,
                                 option1: props.optionOne,
                                 option2: props.optionTwo,
-
                                 optionOneVotes: props.optionOneVotes,
                                 optionTwoVotes: props.optionTwoVotes,
                                 dummyLogin: props.dummyLogin,

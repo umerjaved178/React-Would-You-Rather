@@ -3,7 +3,8 @@ import axios from '../../axios-instance'
 
 
 const initialState = {
-    fetchedData: undefined
+    fetchedData: undefined,
+    answered: true,
 }
 
 // Thunk
@@ -14,7 +15,6 @@ export const firebaseDataFetch = createAsyncThunk(
         return response.data
     }
   )
-
 export const voteHandler = createAsyncThunk(
     'pools/voteHandler',
     
@@ -27,21 +27,15 @@ export const voteHandler = createAsyncThunk(
     )
 
 
-
+// Slice
 export const entirePoolSlice = createSlice({
   name: 'pool',
   initialState,
-//   reducers: {
-    // increment: (state) => {
-    //   state.value += 1
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1
-    // },
-    // incrementByAmount: (state, action) => {
-    //   state.value += action.payload
-    // },
-//   },
+  reducers: {
+    toggleAnswer: (state) => {
+      state.answered = !state.answered 
+    },
+  },
 
   extraReducers: {
     [firebaseDataFetch.rejected]: (state, action) => {
@@ -65,6 +59,6 @@ export const entirePoolSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = entirePoolSlice.actions
+export const { toggleAnswer } = entirePoolSlice.actions
 
 export default entirePoolSlice.reducer

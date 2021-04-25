@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
 import Detailed from '../Detailed'
 import classes from './Vote.module.css'
 import {voteHandler} from '../../../redux/slices/EntirePoolSlice'

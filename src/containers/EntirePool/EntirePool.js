@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import SinglePoll from '../../components/SinglePoll/SinglePoll'
-import axios from '../../axios-instance'
 import classes from './EntirePool.module.css'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import { useDispatch, useSelector } from 'react-redux'
-import {firebaseDataFetch} from '../../redux/slices/EntirePoolSlice'
+import {firebaseDataFetch, toggleAnswer} from '../../redux/slices/EntirePoolSlice'
 
 
 function EntirePool() {
-    const [anwsered, setanwsered] = useState(true)
     const questions = useSelector(state => state.EntirePool.fetchedData)
+    const answered = useSelector(state => state.EntirePool.answered)
     const dispatch = useDispatch()
     //   [ 
     //   {
@@ -99,12 +98,12 @@ function EntirePool() {
     
 
     const toggleAnswered = () => {
-        if(anwsered) return
-        setanwsered(prevState => true)
+        if(answered) return
+        dispatch(toggleAnswer())
     }
     const toggleUnAnswered = () => {
-        if(!anwsered) return
-        setanwsered(prevState => false)
+        if(!answered) return
+        dispatch(toggleAnswer())
     }
 
     // const voteHandler = (id, selectedOption, voter) => {
@@ -117,7 +116,7 @@ function EntirePool() {
        
     const dummyLogin = 'johndoe'
     // sarahedo johndoe
-    let resultButton = anwsered ? 'Results' : 'Vote'
+    let resultButton = answered ? 'Results' : 'Vote'
 
     let displayContent = <Spinner />
     if(questions){
@@ -126,7 +125,7 @@ function EntirePool() {
             | (singleObject.optionTwo.votes ? singleObject.optionTwo.votes.includes(dummyLogin) : false)
             )
 
-          if(!anwsered){ 
+          if(!answered){ 
             filteredQuestions = questions.filter(singleObject => 
               (singleObject.optionOne.votes ? !singleObject.optionOne.votes.includes(dummyLogin) : true)
               && (singleObject.optionTwo.votes? !singleObject.optionTwo.votes.includes(dummyLogin) : true))
@@ -143,13 +142,13 @@ function EntirePool() {
                                                                   optionTwoVotes={question.optionTwo.votes ? question.optionTwo.votes.length : 0} 
                                                                   resultButton={resultButton}
                                                                   selectedOption={(question.optionOne.votes && question.optionOne.votes.includes(dummyLogin)) ? "selected_1" : "selected_2"}
-                                                                  // voteHandler={voteHandler}
                                                                   />)
                                                                 )
     } 
 
     return (
         <div className={classes.EntirePool}>
+          {console.log(answered)}
             <div className={classes.Headers} tabIndex="1" onClick={toggleAnswered} > Anwsered </div> | <div className={classes.Headers} tabIndex="1" onClick={toggleUnAnswered}> Unanwsered </div>
             <div className={classes.TableArea}>
                 {displayContent}
