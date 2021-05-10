@@ -1,24 +1,24 @@
 .SinglePoll {
-    border: 1px solid black;
-    width: 500px;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    margin: 20px;
+  border: 1px solid black;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 20px;
 }
 
 .SinglePoll img {
-    width: 100px;
+  width: 100px;
 }
 
 .item_1 {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
-.item_2{
-    flex-direction: column;
+.item_2 {
+  flex-direction: column;
 }
 
 .author {
-    font-size: 12px;
+  font-size: 12px;
 }

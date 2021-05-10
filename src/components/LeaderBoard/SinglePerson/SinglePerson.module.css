@@ -1,28 +1,28 @@
 .Person {
-    border: solid 2px black;
-    width: 600px;
-    margin: auto;
-    margin-bottom: 10px;
+  border: solid 2px black;
+  width: 600px;
+  margin: auto;
+  margin-bottom: 10px;
 }
 
 .Number1 {
-    color: black;
-    padding: 5px;
-    background-color: #FFE033;
-    border-radius: 30%;
-    font-weight: bold;
+  color: black;
+  padding: 5px;
+  background-color: #ffe033;
+  border-radius: 30%;
+  font-weight: bold;
 }
 
 .Number2 {
-    color: white;
-    padding: 3.5px;
-    background-color: #6b6b6b;
-    border-radius: 20%;
+  color: white;
+  padding: 3.5px;
+  background-color: #6b6b6b;
+  border-radius: 20%;
 }
 
 .Number3 {
-    color: white;
-    padding: 3.5px;
-    background-color: #ff0000;
-    border-radius: 20%;
+  color: white;
+  padding: 3.5px;
+  background-color: #ff0000;
+  border-radius: 20%;
 }

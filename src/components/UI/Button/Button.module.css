@@ -1,21 +1,20 @@
 .Button {
-    cursor: pointer;
-    color: black;
-    background-color: #FFE01B;
-    display: inline-block;
-    font-weight: bold;
-    width: auto;
-    border: 1px solid rgb(196, 196, 196);
-    padding: 5px 15px;
+  cursor: pointer;
+  color: black;
+  background-color: #ffe01b;
+  display: inline-block;
+  font-weight: bold;
+  width: auto;
+  border: 1px solid rgb(196, 196, 196);
+  padding: 5px 15px;
 }
 
 .Button:active {
-    transform: scale(0.9);
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  transform: scale(0.9);
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
 
-
 .Button:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
