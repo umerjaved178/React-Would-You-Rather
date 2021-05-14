@@ -4,12 +4,13 @@ import axios from "../../axios-instance";
 const initialState = {
   fetchedData: undefined,
   answered: true,
+  moveToHome: false,
 };
 
 // Thunk
 export const firebaseDataFetch = createAsyncThunk(
   "pools/firebaseDataFetch",
-  async (type) => {
+  async (type, thunk) => {
     const response = await axios.get("/questions.json");
     return response.data;
   }
@@ -17,12 +18,13 @@ export const firebaseDataFetch = createAsyncThunk(
 export const voteHandler = createAsyncThunk(
   "pools/voteHandler",
 
-  async ({ id, selectedOption, voter }) => {
+  async ({ id, selectedOption, voter, history }, thunk) => {
     let url = `/questions/${id}/${selectedOption}/votes.json`;
-    const response = await axios.get(url).then((res) => {
+    await axios.get(url).then((res) => {
       axios.put(url, res.data.concat(voter));
     });
-    return response.data;
+    thunk.dispatch(firebaseDataFetch());
+    thunk.dispatch(entirePoolSlice.actions.votingFinish());
   }
 );
 
@@ -33,6 +35,9 @@ export const entirePoolSlice = createSlice({
   reducers: {
     toggleAnswer: (state) => {
       state.answered = !state.answered;
+    },
+    votingFinish: (state) => {
+      state.moveToHome = true;
     },
   },
 
@@ -49,10 +54,19 @@ export const entirePoolSlice = createSlice({
         });
       }
       state.fetchedData = fetchedQuestions;
-      console.log("new main call");
+      state.moveToHome = false;
+      console.log("new main call", action);
     },
 
-    [voteHandler.fulfilled]: (state, action) => {},
+    [voteHandler.pending]: (state, action) => {
+      console.log("voted pending");
+    },
+    [voteHandler.fulfilled]: (state, action) => {
+      console.log("voted fulfilled");
+    },
+    [voteHandler.rejected]: (state, action) => {
+      console.log("voted rejected");
+    },
   },
 });
 

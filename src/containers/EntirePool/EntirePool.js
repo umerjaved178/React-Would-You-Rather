@@ -16,6 +16,7 @@ function EntirePool() {
   useEffect(() => {
     dispatch(firebaseDataFetch());
   }, []);
+  // useEffect(() => {}, [questions]);
 
   const toggleAnswered = () => {
     if (answered) return;
@@ -82,7 +83,7 @@ function EntirePool() {
 
   return (
     <div className={classes.EntirePool}>
-      {/* {console.log(newAPICall)} */}
+      {console.log(" RENDERRR ")}
       <div className={classes.Headers} tabIndex="1" onClick={toggleAnswered}>
         {" "}
         Anwsered{" "}
