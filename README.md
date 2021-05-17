@@ -10,9 +10,8 @@ Web app built with React and Redux that lets users play the "Would You Rather?" 
 ![alt text](https://github.com/umerjaved178/React-Would-You-Rather/blob/master/src/assets/images/2.png?raw=true)
 
 
-##### A few features of the app is mentioned below:
-Toolbar implemented using React Router Navlink
-Saves polls to Firebase database via Axios and subsequently be retrieved depending upon answered and
-unanswered questions.
-Redux toolkit for state management
-User authentication with Firebase.
+##### Toolbar implemented using React Router Navlink
+##### Saves polls to Firebase database via Axios and subsequently be retrieved depending upon answered and
+##### unanswered questions.
+##### Redux toolkit for state management
+##### User authentication with Firebase.
